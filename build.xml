@@ -59,7 +59,7 @@
             <arg value="--format"/>
             <arg value="html:target/cucumber-html-report"/>
             <arg value="--glue"/>
-            <arg value="workshop"/>
+            <arg value="steps"/>
             <arg value="src/test/resources"/>
         </java>
 

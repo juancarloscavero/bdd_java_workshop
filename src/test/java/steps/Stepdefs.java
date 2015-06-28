@@ -1,4 +1,7 @@
-package workshop;
+package steps;
+
+import io.appium.java_client.AppiumSetting;
+import page_objects.*;
 
 import java.io.File;
 import java.net.URL;
@@ -24,12 +27,17 @@ public  class Stepdefs {
         File appDir = new File(classpathRoot, "apps");
         File app = new File(appDir, "Workshop.apk");
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("deviceName","Genymotion");
-        capabilities.setCapability("platformVersion", "4.4");
+        capabilities.setCapability("deviceName","emulator-5554");
+        capabilities.setCapability("platformVersion", "5.0");
         capabilities.setCapability("app", app.getAbsolutePath());
-        //capabilities.setCapability("appPackage", "com.example.android.contactmanager");
-        //capabilities.setCapability("appActivity", ".ContactManager");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+    }
+
+    @Given("^I am about to login$")
+    public void I_am_about_to_login(){
+
+        LoginPage page = new LoginPage(driver);
+        page.enterCredentials();
     }
 
     @After
@@ -37,14 +45,11 @@ public  class Stepdefs {
         driver.quit();
     }
 
-     }
 
 
 
-     //@Given("^I am about to login$")
-      //public void test() {
-  //     //  Belly belly = new Belly();
-  //      // belly.eat(cukes);
-	 // }   
 
-  //   }
+    // workshop.LoginPage page (driver);
+        // belly.eat(cukes);
+
+}
